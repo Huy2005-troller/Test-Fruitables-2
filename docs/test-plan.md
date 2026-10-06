@@ -3,7 +3,7 @@
 | Trường | Thông tin |
 |--------|-----------|
 | **Tên dự án** | Fruitables — Hệ thống Thương mại Điện tử |
-| **Phiên bản** | v1.0 |
+| **Phiên bản** | v1.1 |
 | **Ngày viết** | 09/10/2026 |
 | **Người viết** | Nguyễn Quang Huy |
 | **Tài liệu tham chiếu** | SRS v2.0 — 20/03/2026 |
@@ -24,10 +24,10 @@ Test plan này xác định phạm vi, mục tiêu, nguồn lực, lịch trình
 
 | STT | Module | Mã SRS | Lý do ưu tiên |
 |-----|--------|--------|---------------|
-| 1 | Xác thực người dùng (Đăng ký / Đăng nhập) | F1 | Nền tảng của mọi module khác; Google OAuth có nhiều edge case |
+| 1 | Xác thực người dùng (Đăng ký / Đăng nhập / Google OAuth) | F1 | Nền tảng của mọi module khác; bao gồm cả luồng Google OAuth |
 | 2 | Quản lý sản phẩm (Admin) | F2 | Cần có dữ liệu sản phẩm để test các module phía dưới |
 | 3 | Giỏ hàng | F4 | Nghiệp vụ phức tạp: guest vs logged-in, phí ship, áp dụng coupon |
-| 4 | Thanh toán & Đặt hàng | F5 | Luồng tiền — critical nhất trong hệ thống |
+| 4 | Thanh toán & Đặt hàng (COD + VNPay + SePay) | F5 | Luồng tiền — critical nhất; COD test trực tiếp, VNPay dùng sandbox public, SePay dùng sandbox trên web SePay |
 | 5 | Quản lý đơn hàng (Admin) | F10 | State machine Pending→Processing→Shipped→Delivered, concurrency |
 | 6 | Mã giảm giá | F11 | Nhiều điều kiện biên: loại giảm, thời hạn, giới hạn lượt dùng |
 
@@ -46,8 +46,7 @@ Test plan này xác định phạm vi, mục tiêu, nguồn lực, lịch trình
 | Live Chat | F15 | Tính năng bổ trợ, không ảnh hưởng đến core business |
 | Testimonials | F16 | Tính năng nội dung, rủi ro thấp |
 | Điểm tích lũy | F17 | Tính năng mở rộng, chưa critical ở giai đoạn đầu |
-| Thanh toán VNPay / SePay | F5 (một phần) | Yêu cầu tài khoản merchant thật và môi trường sandbox riêng; chưa có trong giai đoạn này |
-| Google OAuth | F1 (một phần) | Yêu cầu cấu hình Google Cloud Console; test thủ công luồng email/password trước |
+
 | Kiểm thử trên mobile | — | Ngoài phạm vi SRS giai đoạn 1 |
 | Kiểm thử hiệu năng / load test | — | Không thuộc phạm vi kiểm thử chức năng đợt này |
 
@@ -123,3 +122,4 @@ Xác nhận rằng 6 module được chọn (F1, F2, F4, F5, F10, F11) hoạt đ
 | Phiên bản | Ngày | Người sửa | Nội dung thay đổi |
 |-----------|------|-----------|-------------------|
 | v1.0 | 09/10/2026 | Nguyễn Quang Huy | Bản đầu tiên |
+| v1.1 | 09/10/2026 | Nguyễn Quang Huy | Cập nhật Scope: VNPay, SePay, Google OAuth vào In Scope; xóa khỏi Out of Scope |
