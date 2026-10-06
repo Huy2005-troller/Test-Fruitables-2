@@ -48,6 +48,7 @@ Test plan này xác định phạm vi, mục tiêu, nguồn lực, lịch trình
 | Điểm tích lũy | F17 | Tính năng mở rộng, chưa critical ở giai đoạn đầu |
 
 | Kiểm thử trên mobile | — | Ngoài phạm vi SRS giai đoạn 1 |
+
 | Kiểm thử hiệu năng / load test | — | Không thuộc phạm vi kiểm thử chức năng đợt này |
 
 ---
